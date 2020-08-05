@@ -8,7 +8,7 @@ import {NgForm} from '@angular/forms';
 })
 export class TemplateComponent implements OnInit {
   usuario = {
-    nombre: 'Carlos'
+    nombre: ''
   };
 
   constructor() { }
@@ -17,6 +17,11 @@ export class TemplateComponent implements OnInit {
   }
 
   guardar(forma : NgForm){
+    if (!forma.valid) {
+      console.log("El formulario no es valido");
+      return;
+    }
+    console.log("Formulario Valido");
     console.log(forma.value);
   }
 
