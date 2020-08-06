@@ -1,6 +1,6 @@
 <h4>Formularios <small> Reactivos </small></h4>
 <hr>
-<form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardadr()">
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
 
   <div>
 
@@ -12,7 +12,11 @@
                type="text"
                placeholder="Nombre"
                formControlName="nombre"
+               [class.is-invalid]="nombreNoValido"
         >
+        <small *ngIf="nombreNoValido" class="text-danger">
+          Ingrese 5 Letras como minimo
+        </small>
       </div>
     </div>
 
@@ -24,7 +28,11 @@
                type="text"
                placeholder="Apellido"
                formControlName="apellido"
+               [class.is-invalid]="apellidoNoValido"
         >
+        <small *ngIf="apellidoNoValido" class="text-danger">
+          Apellido No Valido
+        </small>
       </div>
     </div>
 
@@ -38,7 +46,11 @@
              type="email"
              placeholder="Correo electrónico"
              formControlName="correo"
+             [class.is-invalid]="correoNoValido"
       >
+      <small *ngIf="correoNoValido" class="text-danger">
+        El correo no es valido (nombre@dominio.extension)
+      </small>
     </div>
   </div>
 

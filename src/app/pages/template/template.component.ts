@@ -32,7 +32,7 @@ export class TemplateComponent implements OnInit {
 
   guardar(forma : NgForm){
     if (forma.invalid) {
-      Object.values( forma.control ).forEach(control => {
+      Object.values( forma.controls ).forEach(control => {
         control.markAsTouched();
       });
       console.log("El formulario no es valido");
