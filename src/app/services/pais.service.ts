@@ -12,7 +12,7 @@ export class PaisService {
   getPaises(){
     return this.http.get('https://restcountries.eu/rest/v2/lang/es')
       .pipe(
-        map( resp => {
+        map( (resp:any) => {
           return resp.map( pais => {
             return {
               nombre: pais.name,
