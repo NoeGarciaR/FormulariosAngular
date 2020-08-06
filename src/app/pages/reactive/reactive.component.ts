@@ -12,6 +12,7 @@ export class ReactiveComponent implements OnInit {
 
   constructor( private fb: FormBuilder) {
     this.crearFormulario();
+    this.cargarDataFormulario();
   }
 
   ngOnInit(): void {
@@ -43,6 +44,22 @@ export class ReactiveComponent implements OnInit {
         ciudad: ['', Validators.required],
       })
     });
+  }
+
+  cargarDataFormulario(){
+
+    this.forma.reset(
+      {
+        nombre   : "Juan Noe",
+        apellido : "Ramos",
+        correo   : "jnoe.garciar@gmail.com",
+        direccion: {
+          distrito : "Mexico",
+          ciudad   : "Texcoco"
+        }
+      }
+    );
+
   }
 
   guardar(){
